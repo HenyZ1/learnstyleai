@@ -490,157 +490,32 @@ ul {
 
 /* === Responsive === */
 @media (max-width: 1024px) {
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .styles-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero-section {
-    flex-direction: column;
-    text-align: center;
-    padding-top: 120px;
-  }
-
-  .hero-content {
-    max-width: 100%;
-  }
-
-  .hero-actions {
-    justify-content: center;
-  }
-
-  .hero-stats {
-    justify-content: center;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .about-content .section-title {
-    text-align: center;
-  }
-
-  .about-text {
-    text-align: center;
-  }
-
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+  :root {
+    --section-padding: 100px 0;
   }
 }
 
 @media (max-width: 768px) {
   :root {
-    --section-padding: 80px 0;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .nav-cta {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .hero-title {
-    font-size: 2.2rem;
-  }
-
-  .hero-logo-wrapper {
-    width: 260px;
-    height: 260px;
-  }
-
-  .hero-logo-svg {
-    width: 220px;
-    height: 220px;
-  }
-
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .styles-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  .about-features {
-    grid-template-columns: 1fr;
+    --section-padding: 60px 0;
   }
 
   .glass-card-large {
-    padding: 32px 20px;
-  }
-
-  .ai-chat-modal {
-    width: calc(100% - 32px);
-    right: 16px;
-    bottom: 100px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .ai-chat-btn {
-    bottom: 24px;
-    right: 24px;
-    width: 56px;
-    height: 56px;
-  }
-
-  .scroll-top-btn {
-    bottom: 24px;
-    left: 24px;
+    padding: 32px 24px;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-section {
-    padding-top: 100px;
-    padding-left: 16px;
-    padding-right: 16px;
+  :root {
+    --section-padding: 50px 0;
   }
 
-  .section-container {
-    padding: 0 16px;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero-stats {
-    flex-direction: column;
-    align-items: center;
+  .glass-card-large {
+    padding: 24px 16px;
   }
 
   .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .survey-nav {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .survey-nav .btn {
-    width: 100%;
-    justify-content: center;
+    padding: 10px 20px;
+    font-size: 0.9rem;
   }
 }

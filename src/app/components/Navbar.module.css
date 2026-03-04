@@ -228,4 +228,12 @@
     .hamburger {
         display: flex;
     }
+
+    .navContainer {
+        padding: 12px 20px;
+    }
+
+    .logoText {
+        font-size: 1.15rem;
+    }
 }
