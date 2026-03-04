@@ -1,0 +1,351 @@
+/* Shared Page Styles */
+.page {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    padding-top: 100px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.pageHeader {
+    text-align: center;
+    margin-bottom: 64px;
+    padding-top: 40px;
+}
+
+.pageTitle {
+    font-family: var(--font-primary);
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-top: 16px;
+    margin-bottom: 20px;
+}
+
+.pageDesc {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Coming Soon Page */
+.comingSoonPage {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comingSoonBox {
+    max-width: 560px;
+    text-align: center;
+    padding: 60px 40px;
+}
+
+.csIcon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 32px;
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.csIconRing {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid;
+    animation: ringPulse 3s ease-in-out infinite;
+}
+
+.ring1 {
+    border-color: rgba(168, 85, 247, 0.2);
+    animation-delay: 0s;
+}
+
+.ring2 {
+    inset: -12px;
+    border-color: rgba(99, 102, 241, 0.15);
+    animation-delay: 0.5s;
+}
+
+.ring3 {
+    inset: -24px;
+    border-color: rgba(6, 182, 212, 0.1);
+    animation-delay: 1s;
+}
+
+@keyframes ringPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 1
+    }
+}
+
+.csIconInner {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+.csTag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 9999px;
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--accent-purple);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+}
+
+.csTagDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-purple);
+    animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1)
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(0.7)
+    }
+}
+
+.csTitle {
+    font-family: var(--font-primary);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+}
+
+.csGlow {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.csDesc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.csActions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.backBtn {
+    text-decoration: none;
+}
+
+/* Feature Detail Cards */
+.detailGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-bottom: 80px;
+}
+
+.detailCard {
+    padding: 40px;
+}
+
+.detailCardIcon {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    font-size: 1.5rem;
+    transition: all 0.4s;
+}
+
+.detailCard:hover .detailCardIcon {
+    transform: scale(1.1);
+}
+
+.detailCardTitle {
+    font-family: var(--font-primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.detailCardDesc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.detailCardList {
+    list-style: none;
+    padding: 0;
+}
+
+.detailCardList li {
+    padding: 8px 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.checkIcon {
+    color: var(--accent-green);
+    flex-shrink: 0;
+}
+
+/* About Page */
+.aboutSection {
+    margin-bottom: 80px;
+}
+
+.aboutSectionTitle {
+    font-family: var(--font-primary);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.teamGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.teamCard {
+    text-align: center;
+    padding: 32px 24px;
+}
+
+.teamAvatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.teamName {
+    font-family: var(--font-primary);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.teamRole {
+    font-size: 0.85rem;
+    color: var(--accent-purple);
+    margin-bottom: 8px;
+}
+
+.teamBio {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.valueGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.valueCard {
+    text-align: center;
+    padding: 32px 24px;
+}
+
+.valueIcon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.valueTitle {
+    font-family: var(--font-primary);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.valueDesc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .detailGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .teamGrid {
+        grid-template-columns: 1fr;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    .valueGrid {
+        grid-template-columns: 1fr;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    .comingSoonBox {
+        padding: 40px 24px;
+    }
+}
