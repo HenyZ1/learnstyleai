@@ -1,24 +1,204 @@
 export const surveyQuestions = [
-    { id: 1, text: "Yeni bir cihazı kullanmayı öğrenirken ne yaparsınız?", options: [{ label: "A", text: "Kullanım kılavuzundaki diyagram ve şemaları incelerim", type: "visual" }, { label: "B", text: "Birinden bana anlatmasını isterim", type: "auditory" }, { label: "C", text: "Yazılı talimatları okuyarak adım adım ilerlerim", type: "readwrite" }, { label: "D", text: "Direkt deneyerek ve kurcalayarak öğrenirim", type: "kinesthetic" }] },
-    { id: 2, text: "Bir sunum hazırlarken hangi yöntemi tercih edersiniz?", options: [{ label: "A", text: "Grafikler, tablolar ve görseller oluştururum", type: "visual" }, { label: "B", text: "Anlatımımı prova eder, sesli tekrar yaparım", type: "auditory" }, { label: "C", text: "Detaylı notlar ve taslaklar yazarım", type: "readwrite" }, { label: "D", text: "Pratik örnekler ve demo hazırlarım", type: "kinesthetic" }] },
-    { id: 3, text: "Bir yeri bulmaya çalışırken size en çok ne yardımcı olur?", options: [{ label: "A", text: "Harita veya navigasyon uygulaması kullanırım", type: "visual" }, { label: "B", text: "Birine telefon eder, sözel tarif isterim", type: "auditory" }, { label: "C", text: "Yazılı adres ve yol tarifini okurum", type: "readwrite" }, { label: "D", text: "Bir kez gidince yolu hatırlarım", type: "kinesthetic" }] },
-    { id: 4, text: "Yemek yapmayı öğrenirken hangi yöntemi tercih edersiniz?", options: [{ label: "A", text: "Video tarif izlerim", type: "visual" }, { label: "B", text: "Birinin anlatmasını dinlerim", type: "auditory" }, { label: "C", text: "Tarif kitabından yazılı tarifi okurum", type: "readwrite" }, { label: "D", text: "Deneme yanılma yoluyla mutfakta pratik yaparım", type: "kinesthetic" }] },
-    { id: 5, text: "Sınavlara nasıl çalışmayı tercih edersiniz?", options: [{ label: "A", text: "Renkli şemalar ve zihin haritaları çiziyorum", type: "visual" }, { label: "B", text: "Konuları sesli okuyup kendime anlatıyorum", type: "auditory" }, { label: "C", text: "Özet notlar çıkarıp tekrar tekrar okuyorum", type: "readwrite" }, { label: "D", text: "Pratik sorular çözüp uygulamalar yapıyorum", type: "kinesthetic" }] },
-    { id: 6, text: "Bir toplantıda bilgi aktarılırken hangisini tercih edersiniz?", options: [{ label: "A", text: "Slaytlar ve görsel sunumlar", type: "visual" }, { label: "B", text: "Sözlü açıklama ve tartışma", type: "auditory" }, { label: "C", text: "Yazılı raporlar ve dokümanlar", type: "readwrite" }, { label: "D", text: "Canlı demolar ve uygulamalı gösterimler", type: "kinesthetic" }] },
-    { id: 7, text: "Boş zamanlarınızda hangi aktiviteyi daha çok tercih edersiniz?", options: [{ label: "A", text: "Film/dizi izlemek, fotoğrafçılık, resim", type: "visual" }, { label: "B", text: "Müzik dinlemek, podcast dinlemek", type: "auditory" }, { label: "C", text: "Kitap/makale okumak, yazı yazmak", type: "readwrite" }, { label: "D", text: "Spor yapmak, el işi, doğa yürüyüşü", type: "kinesthetic" }] },
-    { id: 8, text: "Zor bir konuyu anlamaya çalışırken ne yaparsınız?", options: [{ label: "A", text: "Konuyla ilgili diyagramlar ve infografikler ararım", type: "visual" }, { label: "B", text: "Konuyu biriyle tartışırım veya ders videosu izlerim", type: "auditory" }, { label: "C", text: "Farklı kaynaklardan yazılı açıklamalar okurum", type: "readwrite" }, { label: "D", text: "Konuyu uygulamalı olarak deneyimlemeye çalışırım", type: "kinesthetic" }] },
-    { id: 9, text: "Bir hata yaptığınızda genellikle nasıl fark edersiniz?", options: [{ label: "A", text: "Görsel olarak bir şeylerin yanlış göründüğünü fark ederim", type: "visual" }, { label: "B", text: "Bir şeylerin doğru duyulmadığını hissederim", type: "auditory" }, { label: "C", text: "Yazdıklarımı kontrol edip hatayı bulurum", type: "readwrite" }, { label: "D", text: "Bir şeylerin doğru hissettirmediğini anlarım", type: "kinesthetic" }] },
-    { id: 10, text: "Yeni bir dil öğrenirken hangi yöntem size daha uygun?", options: [{ label: "A", text: "Görsel kartlar ve resimli sözlükler", type: "visual" }, { label: "B", text: "Dinleyerek ve konuşarak öğrenmek", type: "auditory" }, { label: "C", text: "Gramer kurallarını okumak ve metin çevirisi", type: "readwrite" }, { label: "D", text: "İnsanlarla etkileşerek, yolculuk yaparak öğrenmek", type: "kinesthetic" }] },
-    { id: 11, text: "Öğretmeniniz yeni bir konu anlatırken en çok ne dikkatinizi çeker?", options: [{ label: "A", text: "Tahtaya çizdiği şekiller ve görseller", type: "visual" }, { label: "B", text: "Ses tonu ve anlatım şekli", type: "auditory" }, { label: "C", text: "Verdiği yazılı notlar ve ders kitabı", type: "readwrite" }, { label: "D", text: "Uygulamalı etkinlikler ve deneyler", type: "kinesthetic" }] },
-    { id: 12, text: "Bir konferansta hangi oturumu tercih edersiniz?", options: [{ label: "A", text: "Görsel sunumlar ve posterler olan oturumlar", type: "visual" }, { label: "B", text: "Panel tartışmaları ve soru-cevap oturumları", type: "auditory" }, { label: "C", text: "Yazılı makaleler ve handout'lar verilen oturumlar", type: "readwrite" }, { label: "D", text: "Atölye çalışmaları ve workshop'lar", type: "kinesthetic" }] },
-    { id: 13, text: "Bir problemi çözerken genellikle hangi yaklaşımı benimsersiniz?", options: [{ label: "A", text: "Problemi şema veya diyagram çizerek görselleştiririm", type: "visual" }, { label: "B", text: "Problemi sesli düşünerek veya biriyle konuşarak çözerim", type: "auditory" }, { label: "C", text: "Problemi yazıya döker, liste yaparak analiz ederim", type: "readwrite" }, { label: "D", text: "Farklı çözümleri deneyerek en iyisini bulurum", type: "kinesthetic" }] },
-    { id: 14, text: "Tatil planı yaparken bilgiyi nasıl toplarsınız?", options: [{ label: "A", text: "Fotoğrafları, videoları ve görsel rehberleri incelerim", type: "visual" }, { label: "B", text: "Arkadaşlarımın deneyimlerini dinlerim", type: "auditory" }, { label: "C", text: "Online yorumları ve seyahat yazılarını okurum", type: "readwrite" }, { label: "D", text: "Daha önce gitmiş birinin yerine gidip keşfederim", type: "kinesthetic" }] },
-    { id: 15, text: "Bir şeyi hatırlamaya çalışırken genellikle ne yaparsınız?", options: [{ label: "A", text: "Görsel bir sahneyi zihnimde canlandırırım", type: "visual" }, { label: "B", text: "Sesini veya konuşmayı hatırlamaya çalışırım", type: "auditory" }, { label: "C", text: "Yazdığım notlara bakar veya zihinsel liste oluştururum", type: "readwrite" }, { label: "D", text: "Yaptığım hareketi veya deneyimi tekrar hissederim", type: "kinesthetic" }] },
-    { id: 16, text: "Bir hediye seçerken ne üzerine yoğunlaşırsınız?", options: [{ label: "A", text: "Güzel ve estetik görünen bir ürün ararım", type: "visual" }, { label: "B", text: "Kişinin bana söylediği istekleri hatırlarım", type: "auditory" }, { label: "C", text: "İnternette araştırıp yorumları okurum", type: "readwrite" }, { label: "D", text: "Mağazada ürünlere dokunur, dener ve hissederim", type: "kinesthetic" }] },
-    { id: 17, text: "Kendinizi en iyi ifade etme şekliniz hangisidir?", options: [{ label: "A", text: "Çizim, tasarım veya görsel sanatlarla", type: "visual" }, { label: "B", text: "Konuşarak ve sözlü iletişimle", type: "auditory" }, { label: "C", text: "Yazarak - mail, mesaj, günlük", type: "readwrite" }, { label: "D", text: "Beden dili, jest ve mimiklerle", type: "kinesthetic" }] },
-    { id: 18, text: "Mobil uygulama kullanırken neye dikkat edersiniz?", options: [{ label: "A", text: "Arayüz tasarımı ve görsel düzene", type: "visual" }, { label: "B", text: "Sesli geri bildirim ve bildirim seslerine", type: "auditory" }, { label: "C", text: "Yazılı açıklamalar ve yardım metinlerine", type: "readwrite" }, { label: "D", text: "Kullanım kolaylığı ve dokunmatik deneyime", type: "kinesthetic" }] },
-    { id: 19, text: "Stresli olduğunuzda kendinizi nasıl rahatlatırsınız?", options: [{ label: "A", text: "Güzel bir manzaraya bakarım veya sanat eseri incelerim", type: "visual" }, { label: "B", text: "Sakinleştirici müzik dinlerim", type: "auditory" }, { label: "C", text: "Günlüğüme yazarım veya kitap okurum", type: "readwrite" }, { label: "D", text: "Yürüyüş, spor veya fiziksel aktivite yaparım", type: "kinesthetic" }] },
-    { id: 20, text: "İdeal öğrenme ortamınız nasıl olurdu?", options: [{ label: "A", text: "Renkli, düzenli, görsel materyallerle dolu", type: "visual" }, { label: "B", text: "Sessiz ama müzik dinleyebileceğim bir alan", type: "auditory" }, { label: "C", text: "Kütüphane gibi kitap ve yazı malzemesiyle dolu", type: "readwrite" }, { label: "D", text: "Geniş, hareket edebileceğim, pratik yapabileceğim bir alan", type: "kinesthetic" }] },
+    {
+        id: 1,
+        text: "Yeni bir uygulamayı veya dijital aracı kullanmayı öğrenirken ilk olarak ne yaparsınız?",
+        options: [
+            { label: "A", text: "Ekran görüntülerine, ikonlara ve arayüz akışına bakarım", type: "visual" },
+            { label: "B", text: "Birinin bana adım adım anlatmasını isterim", type: "auditory" },
+            { label: "C", text: "Yazılı yardım sayfasını veya kullanım rehberini okurum", type: "readwrite" },
+            { label: "D", text: "Doğrudan kurcalar, deneyerek çözmeye çalışırım", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 2,
+        text: "Öğretmeniniz yeni bir konuyu ilk kez anlatırken hangi sunum biçimi size daha çok yardımcı olur?",
+        options: [
+            { label: "A", text: "Şema, grafik ve slaytlarla anlatılması", type: "visual" },
+            { label: "B", text: "Açıklamanın konuşularak ve örneklenerek anlatılması", type: "auditory" },
+            { label: "C", text: "Başlıklar, tanımlar ve notlarla yazılı verilmesi", type: "readwrite" },
+            { label: "D", text: "Etkinlik, deney veya uygulama üzerinden gösterilmesi", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 3,
+        text: "Bir süreci veya yöntemi hatırlamanız gerektiğinde hangisi en çok işe yarar?",
+        options: [
+            { label: "A", text: "Akış şeması veya zihinsel görsel oluşturmak", type: "visual" },
+            { label: "B", text: "Adımları kendi kendime sesli tekrar etmek", type: "auditory" },
+            { label: "C", text: "Maddeler halinde yazılı liste çıkarmak", type: "readwrite" },
+            { label: "D", text: "Süreci uygulayarak tekrar etmek", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 4,
+        text: "Zor bir matematik ya da fen sorusunu anlamakta zorlandığınızda ne yaparsınız?",
+        options: [
+            { label: "A", text: "Şekil çizerek veya problemi görselleştirerek düşünürüm", type: "visual" },
+            { label: "B", text: "Soruyu biriyle konuşur, sesli düşünürüm", type: "auditory" },
+            { label: "C", text: "Formülleri ve çözüm adımlarını yazarım", type: "readwrite" },
+            { label: "D", text: "Benzer sorular çözerek mantığı kavramaya çalışırım", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 5,
+        text: "Sınava hazırlanırken hangi yöntem size daha doğal gelir?",
+        options: [
+            { label: "A", text: "Renkli şemalar, tablolar ve zihin haritaları çıkarmak", type: "visual" },
+            { label: "B", text: "Konuyu sesli anlatmak veya kayıt dinlemek", type: "auditory" },
+            { label: "C", text: "Özet notlar çıkarıp tekrar tekrar okumak", type: "readwrite" },
+            { label: "D", text: "Bol soru çözmek ve mini denemeler yapmak", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 6,
+        text: "Bir eğitim veya toplantıda bilgiyi en rahat hangi biçimde alırsınız?",
+        options: [
+            { label: "A", text: "Slaytlar, grafikler ve görsel örneklerle", type: "visual" },
+            { label: "B", text: "Anlatım, tartışma ve soru-cevap ile", type: "auditory" },
+            { label: "C", text: "Yazılı rapor, doküman veya notlar ile", type: "readwrite" },
+            { label: "D", text: "Canlı demo veya uygulamalı gösterim ile", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 7,
+        text: "Ders bittikten sonra bilgiyi kalıcı hale getirmek için ilk olarak ne yaparsınız?",
+        options: [
+            { label: "A", text: "Notları görsel olarak yeniden düzenler, şema çıkarırım", type: "visual" },
+            { label: "B", text: "Konuyu kendi kendime ya da bir arkadaşa anlatırım", type: "auditory" },
+            { label: "C", text: "Defterime temiz bir özet ve anahtar kavram listesi yazarım", type: "readwrite" },
+            { label: "D", text: "Konuyla ilgili alıştırma veya küçük uygulama yaparım", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 8,
+        text: "İnternetten yeni bir konuyu öğrenmeniz gerektiğinde hangi kaynak size daha çok uyar?",
+        options: [
+            { label: "A", text: "İnfografik, animasyon veya görsel anlatımlı videolar", type: "visual" },
+            { label: "B", text: "Canlı anlatım, podcast veya sesli açıklamalar", type: "auditory" },
+            { label: "C", text: "Makaleler, blog yazıları ve yazılı rehberler", type: "readwrite" },
+            { label: "D", text: "Etkileşimli simülasyonlar ve uygulamalı içerikler", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 9,
+        text: "Öğretmeniniz bir ödevde hata yaptığınızı söylediğinde hangi geri bildirim türü size daha faydalı olur?",
+        options: [
+            { label: "A", text: "Hatanın işaretlendiği görsel veya örnek üzerinden açıklama", type: "visual" },
+            { label: "B", text: "Hatanın sözlü olarak neden yanlış olduğunun anlatılması", type: "auditory" },
+            { label: "C", text: "Yazılı yorumlar ve düzeltme notları verilmesi", type: "readwrite" },
+            { label: "D", text: "Doğru yöntemi uygulayıp yeniden denememin istenmesi", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 10,
+        text: "Yeni bir dil öğrenirken hangi yöntem size daha çok uyar?",
+        options: [
+            { label: "A", text: "Görsel kartlar, resimli kelime listeleri ve altyazılar", type: "visual" },
+            { label: "B", text: "Dinleyerek, tekrar ederek ve konuşarak öğrenmek", type: "auditory" },
+            { label: "C", text: "Gramer kurallarını okuyup yazılı alıştırma yapmak", type: "readwrite" },
+            { label: "D", text: "Rol yapma, günlük diyalog ve gerçek kullanım üzerinden öğrenmek", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 11,
+        text: "Ders sırasında dikkatinizi en çok ne toplar?",
+        options: [
+            { label: "A", text: "Tahtadaki çizimler, grafikler ve görsel düzen", type: "visual" },
+            { label: "B", text: "Öğretmenin ses tonu ve anlatım biçimi", type: "auditory" },
+            { label: "C", text: "Tahtaya yazılan formüller, tanımlar ve notlar", type: "readwrite" },
+            { label: "D", text: "Uygulamalı etkinlikler, deneyler ve örnekler", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 12,
+        text: "Bir eğitim etkinliğinde hangi oturum türünü tercih edersiniz?",
+        options: [
+            { label: "A", text: "Poster, görsel vaka veya sunum odaklı oturumları", type: "visual" },
+            { label: "B", text: "Panel, tartışma ve soru-cevap oturumlarını", type: "auditory" },
+            { label: "C", text: "Not, handout ve yazılı materyal verilen oturumları", type: "readwrite" },
+            { label: "D", text: "Atölye, workshop ve uygulama içeren oturumları", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 13,
+        text: "Bir proje problemi çözerken hangisi size daha doğal gelir?",
+        options: [
+            { label: "A", text: "Problemi diyagram, tablo veya akış çizerek netleştirmek", type: "visual" },
+            { label: "B", text: "Fikirleri sesli tartışmak ve konuşarak çözmek", type: "auditory" },
+            { label: "C", text: "Yazılı analiz, madde listesi ve plan çıkarmak", type: "readwrite" },
+            { label: "D", text: "Farklı seçenekleri deneyip test ederek ilerlemek", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 14,
+        text: "Bir haftalık ders çalışma planı hazırlarken nasıl başlarsınız?",
+        options: [
+            { label: "A", text: "Takvim, renk kodu ve görsel planlayıcı oluştururum", type: "visual" },
+            { label: "B", text: "Planı biriyle konuşur veya kendi kendime sesli kurarım", type: "auditory" },
+            { label: "C", text: "To-do listesi ve yazılı program hazırlarım", type: "readwrite" },
+            { label: "D", text: "İlk göreve başlayıp ilerledikçe planı şekillendiririm", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 15,
+        text: "Çalıştığınız bir konuyu sınavda hatırlamak istediğinizde genellikle neye yaslanırsınız?",
+        options: [
+            { label: "A", text: "Zihnimdeki görüntüye, sayfa düzenine veya şemaya", type: "visual" },
+            { label: "B", text: "Ders anlatımını veya kendi sesli tekrarımı hatırlamaya", type: "auditory" },
+            { label: "C", text: "Yazdığım özetlere, anahtar kelimelere ve notlara", type: "readwrite" },
+            { label: "D", text: "Çözdüğüm örneğe, yaptığım uygulamaya veya deneyime", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 16,
+        text: "Bir kurs veya eğitim kaynağı seçeceğiniz zaman hangi bilgi türü sizi daha çok ikna eder?",
+        options: [
+            { label: "A", text: "Örnek ekranlar, slaytlar ve görsel içerik kalitesi", type: "visual" },
+            { label: "B", text: "Eğitmenin anlatımı ve kullanıcı yorumlarının sözlü içeriği", type: "auditory" },
+            { label: "C", text: "Müfredat, dokümanlar ve yazılı içerik detayları", type: "readwrite" },
+            { label: "D", text: "Deneme dersi, pratik bölüm ve uygulama imkanları", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 17,
+        text: "Bir konuyu gerçekten anladığınızı en iyi nasıl gösterirsiniz?",
+        options: [
+            { label: "A", text: "Şema, sunum veya çizimle anlatarak", type: "visual" },
+            { label: "B", text: "Konuşarak ve sözlü açıklama yaparak", type: "auditory" },
+            { label: "C", text: "Yazılı açıklama, özet veya rapor hazırlayarak", type: "readwrite" },
+            { label: "D", text: "Yaparak, göstererek veya örnek uygulama oluşturarak", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 18,
+        text: "Bir eğitim uygulamasını kullanırken hangi özellik size daha çok yardımcı olur?",
+        options: [
+            { label: "A", text: "Temiz arayüz, görsel akış ve grafik destekleri", type: "visual" },
+            { label: "B", text: "Sesli anlatım, dinleme modları ve konuşma pratiği", type: "auditory" },
+            { label: "C", text: "Yazılı açıklamalar, not alanları ve metin içerikleri", type: "readwrite" },
+            { label: "D", text: "Sürükle-bırak, quiz ve etkileşimli alıştırmalar", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 19,
+        text: "Çalışırken dikkatiniz dağıldığında odağı yeniden toplamak için hangisini yaparsınız?",
+        options: [
+            { label: "A", text: "Konuyu daha düzenli ve görsel hale getiririm", type: "visual" },
+            { label: "B", text: "Konuyu sesli tekrar eder veya anlatırım", type: "auditory" },
+            { label: "C", text: "Kısa bir yazılı özet ve görev listesi çıkarırım", type: "readwrite" },
+            { label: "D", text: "Kısa bir mola verip sonra alıştırmayla geri dönerim", type: "kinesthetic" },
+        ],
+    },
+    {
+        id: 20,
+        text: "Sizin için ideal çalışma ortamı hangisine daha yakındır?",
+        options: [
+            { label: "A", text: "Düzenli, renk kodlu ve görsel materyallerin olduğu bir masa", type: "visual" },
+            { label: "B", text: "Sessiz veya kontrollü ses ortamı olan bir alan", type: "auditory" },
+            { label: "C", text: "Kitap, not ve yazı araçlarıyla düzenlenmiş bir çalışma alanı", type: "readwrite" },
+            { label: "D", text: "Hareket edebileceğim ve pratik yapabileceğim esnek bir ortam", type: "kinesthetic" },
+        ],
+    },
 ];
 
 export const styleResults = {

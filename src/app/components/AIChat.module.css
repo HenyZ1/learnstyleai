@@ -57,7 +57,6 @@
     }
 }
 
-/* Chat Modal - Smaller */
 .modal {
     position: fixed;
     bottom: 84px;
@@ -92,7 +91,6 @@
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-/* Header */
 .chatHeader {
     display: flex;
     align-items: center;
@@ -142,14 +140,12 @@
 }
 
 @keyframes pulseDot {
-
-    0%,
-    100% {
-        opacity: 1
+    0%, 100% {
+        opacity: 1;
     }
 
     50% {
-        opacity: 0.4
+        opacity: 0.4;
     }
 }
 
@@ -172,7 +168,6 @@
     color: var(--text-primary);
 }
 
-/* Messages */
 .messages {
     flex: 1;
     overflow-y: auto;
@@ -270,7 +265,6 @@
     font-weight: 600;
 }
 
-/* Typing */
 .typingDots {
     display: flex;
     gap: 3px;
@@ -294,9 +288,7 @@
 }
 
 @keyframes typeDot {
-
-    0%,
-    100% {
+    0%, 100% {
         opacity: 0.3;
         transform: translateY(0);
     }
@@ -307,7 +299,6 @@
     }
 }
 
-/* Input */
 .inputArea {
     padding: 12px 16px 14px;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -339,6 +330,11 @@
     color: var(--text-primary);
 }
 
+.chip:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 .form {
     display: flex;
     gap: 6px;
@@ -366,6 +362,11 @@
     box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.08);
 }
 
+.input:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
 .sendBtn {
     width: 38px;
     height: 38px;
@@ -384,6 +385,13 @@
 .sendBtn:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(168, 85, 247, 0.25);
+}
+
+.sendBtn:disabled {
+    opacity: 0.6;
+    transform: none;
+    box-shadow: none;
+    cursor: not-allowed;
 }
 
 @media (max-width: 768px) {
