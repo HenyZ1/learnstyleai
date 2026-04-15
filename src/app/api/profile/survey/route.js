@@ -22,7 +22,7 @@ export async function GET() {
   }
 
   return NextResponse.json({
-    profile: getSurveyProfileByUserId(user.id),
+    profile: await getSurveyProfileByUserId(user.id),
   });
 }
 
@@ -51,7 +51,7 @@ export async function POST(request) {
       );
     }
 
-    upsertSurveyProfile({
+    await upsertSurveyProfile({
       userId: user.id,
       userName: user.name,
       userRole: user.role,
@@ -70,4 +70,3 @@ export async function POST(request) {
     );
   }
 }
-

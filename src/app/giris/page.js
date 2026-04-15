@@ -14,7 +14,7 @@ export default async function Page() {
     const cookieStore = await cookies();
     const token = cookieStore.get(SESSION_COOKIE_NAME)?.value;
     const user = verifySessionToken(token);
-    const initialDashboardProfile = user ? getSurveyProfileByUserId(user.id) : null;
+    const initialDashboardProfile = user ? await getSurveyProfileByUserId(user.id) : null;
 
     return (
         <div id="app">
