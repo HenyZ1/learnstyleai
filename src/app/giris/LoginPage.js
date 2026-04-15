@@ -1,12 +1,13 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "../components/PageStyles.module.css";
 
-export default function LoginPage({ initialUser, accounts }) {
+export default function LoginPage({ initialUser, initialDashboardProfile, accounts }) {
     const router = useRouter();
     const [user, setUser] = useState(initialUser);
+    const [dashboardProfile, setDashboardProfile] = useState(initialDashboardProfile);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
@@ -23,6 +24,25 @@ export default function LoginPage({ initialUser, accounts }) {
 
         return "Ogrenci oturumu aktif. Anketi doldurup AI destekli yorumlari ve chat asistanini ogrenci akisi icinde test edebilirsiniz.";
     }, [user]);
+
+    useEffect(() => {
+        setUser(initialUser);
+    }, [initialUser]);
+
+    useEffect(() => {
+        setDashboardProfile(initialDashboardProfile || null);
+    }, [initialDashboardProfile]);
+
+    const formattedCompletedAt = useMemo(() => {
+        if (!dashboardProfile?.completedAt) {
+            return "";
+        }
+
+        return new Date(dashboardProfile.completedAt).toLocaleString("tr-TR", {
+            dateStyle: "medium",
+            timeStyle: "short",
+        });
+    }, [dashboardProfile]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -47,6 +67,7 @@ export default function LoginPage({ initialUser, accounts }) {
             }
 
             setUser(data.user);
+            setDashboardProfile(null);
             setPassword("");
             router.refresh();
         } catch (submitError) {
@@ -69,6 +90,7 @@ export default function LoginPage({ initialUser, accounts }) {
                 method: "POST",
             });
             setUser(null);
+            setDashboardProfile(null);
             setEmail("");
             setPassword("");
             router.refresh();
@@ -167,7 +189,7 @@ export default function LoginPage({ initialUser, accounts }) {
                         ) : (
                             <>
                                 <div className={styles.panelHeader}>
-                                    <p className={styles.panelEyebrow}>Oturum Acik</p>
+                                    <p className={styles.panelEyebrow}>Dashboard</p>
                                     <h2 className={styles.panelTitle}>{user.name}</h2>
                                     <p className={styles.panelDesc}>
                                         {user.roleLabel} hesabi aktif. E-posta: <strong>{user.email}</strong>
@@ -193,9 +215,98 @@ export default function LoginPage({ initialUser, accounts }) {
                                     </div>
                                 </div>
 
+                                <div className={`glass-card ${styles.dashboardCard}`}>
+                                    <div className={styles.dashboardHeader}>
+                                        <div>
+                                            <p className={styles.panelEyebrow}>Son Anket Sonucu</p>
+                                            <h3 className={styles.dashboardTitle}>
+                                                {dashboardProfile?.dominantStyle
+                                                    ? `${dashboardProfile.dominantStyle.icon} ${dashboardProfile.dominantStyle.label}`
+                                                    : "Henuz anket sonucu yok"}
+                                            </h3>
+                                        </div>
+                                        {dashboardProfile?.dominantStyle ? (
+                                            <span
+                                                className={styles.dashboardBadge}
+                                                style={{
+                                                    background: `${dashboardProfile.dominantStyle.color}22`,
+                                                    color: dashboardProfile.dominantStyle.color,
+                                                }}
+                                            >
+                                                %{dashboardProfile.dominantStyle.percentage}
+                                            </span>
+                                        ) : null}
+                                    </div>
+
+                                    {dashboardProfile ? (
+                                        <>
+                                            <p className={styles.dashboardSummary}>{dashboardProfile.blendSummary}</p>
+
+                                            <div className={styles.dashboardMetrics}>
+                                                <span className={styles.dashboardMetric}>
+                                                    AI: {dashboardProfile.analysisSource === "ai" ? "OpenAI" : "Fallback"}
+                                                </span>
+                                                {dashboardProfile.mlPrediction ? (
+                                                    <span className={styles.dashboardMetric}>
+                                                        ML: {dashboardProfile.mlPrediction.predictedStyleLabel} %{
+                                                            dashboardProfile.mlPrediction.confidencePercent
+                                                        }
+                                                    </span>
+                                                ) : null}
+                                                {formattedCompletedAt ? (
+                                                    <span className={styles.dashboardMetric}>
+                                                        Guncellendi: {formattedCompletedAt}
+                                                    </span>
+                                                ) : null}
+                                            </div>
+
+                                            <div className={styles.dashboardScoreList}>
+                                                {dashboardProfile.rankedStyles.map((style) => (
+                                                    <div key={style.key} className={styles.dashboardScoreRow}>
+                                                        <div className={styles.dashboardScoreHeader}>
+                                                            <span>
+                                                                {style.icon} {style.label}
+                                                            </span>
+                                                            <strong>{style.score}/20</strong>
+                                                        </div>
+                                                        <div className={styles.dashboardScoreTrack}>
+                                                            <div
+                                                                className={styles.dashboardScoreFill}
+                                                                style={{
+                                                                    width: `${style.percentage}%`,
+                                                                    background: style.color,
+                                                                }}
+                                                            ></div>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+
+                                            {dashboardProfile.analysisPreview ? (
+                                                <p className={styles.dashboardPreview}>{dashboardProfile.analysisPreview}</p>
+                                            ) : null}
+
+                                            {dashboardProfile.recommendedTips?.length ? (
+                                                <ul className={styles.dashboardTipList}>
+                                                    {dashboardProfile.recommendedTips.slice(0, 3).map((tip) => (
+                                                        <li key={tip}>{tip}</li>
+                                                    ))}
+                                                </ul>
+                                            ) : null}
+                                        </>
+                                    ) : (
+                                        <div className={styles.dashboardEmpty}>
+                                            <p>
+                                                Bu hesap icin kayitli anket sonucu bulunmuyor. Giris yaptiktan sonra anketi
+                                                tamamladiginizda sonuc burada otomatik gorunecek.
+                                            </p>
+                                        </div>
+                                    )}
+                                </div>
+
                                 <div className={styles.quickLinks}>
                                     <Link href="/ogrenme-stilini-bul" className={`btn btn-primary ${styles.backBtn}`}>
-                                        Ankete Basla
+                                        {dashboardProfile ? "Anketi Guncelle" : "Ankete Basla"}
                                     </Link>
                                     <Link href="/ozellikler" className={`btn btn-glass ${styles.backBtn}`}>
                                         Ozellikler

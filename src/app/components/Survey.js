@@ -10,6 +10,7 @@ import {
   learningStyleMeta,
   rankSurveyStyles,
 } from "../data/surveyUtils";
+import { buildSurveyDashboardProfile } from "../lib/surveyProfile";
 
 function SparkIcon() {
   return (
@@ -60,6 +61,31 @@ export default function Survey() {
   const dominantResult = dominantStyle?.score ? styleResults[dominantStyle.key] : null;
   const blendSummary = getBlendSummary(rankedStyles);
 
+  const persistDashboardProfile = async (data) => {
+    try {
+      const profile = buildSurveyDashboardProfile({
+        rankedStyles,
+        dominantStyle,
+        secondaryStyle,
+        blendSummary,
+        dominantResult,
+        analysis: data.analysis,
+        analysisSource: data.analysisSource,
+        mlPrediction: data.mlPrediction,
+      });
+
+      await fetch("/api/profile/survey", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ profile }),
+      });
+    } catch {
+      // Dashboard kaydi opsiyonel; survey akisini bozmasin.
+    }
+  };
+
   useEffect(() => {
     if (showResults) {
       resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -92,6 +118,7 @@ export default function Survey() {
       setAnalysisSource(data.analysisSource || "");
       setMlPrediction(data.mlPrediction || null);
       setAnalysisState("success");
+      await persistDashboardProfile(data);
     } catch (error) {
       setAnalysisState("error");
       setAnalysisError(

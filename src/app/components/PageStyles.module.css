@@ -371,6 +371,120 @@
     color: var(--text-primary);
 }
 
+.dashboardCard {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.dashboardHeader {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.dashboardTitle {
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+}
+
+.dashboardBadge,
+.dashboardMetric {
+    padding: 8px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.dashboardBadge {
+    white-space: nowrap;
+}
+
+.dashboardSummary,
+.dashboardPreview,
+.dashboardEmpty {
+    color: var(--text-secondary);
+    line-height: 1.75;
+}
+
+.dashboardMetrics {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.dashboardMetric {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+}
+
+.dashboardScoreList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dashboardScoreRow {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.dashboardScoreHeader {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.dashboardScoreHeader span {
+    color: var(--text-secondary);
+}
+
+.dashboardScoreTrack {
+    width: 100%;
+    height: 10px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+}
+
+.dashboardScoreFill {
+    height: 100%;
+    border-radius: inherit;
+}
+
+.dashboardTipList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.dashboardTipList li {
+    position: relative;
+    padding-left: 18px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+.dashboardTipList li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+}
+
 /* Feature Detail Cards */
 .detailGrid {
     display: grid;
