@@ -1,18 +1,24 @@
 import BackgroundAnimation from "../components/BackgroundAnimation";
 import Navbar from "../components/Navbar";
 import LoginPage from "./LoginPage";
+import { cookies } from "next/headers";
+import { SESSION_COOKIE_NAME, getDemoAccounts, verifySessionToken } from "../lib/demoAuth";
 
 export const metadata = {
     title: "Giriş Yap | LearnStyle AI",
     description: "LearnStyle AI platformuna giriş yapın.",
 };
 
-export default function Page() {
+export default async function Page() {
+    const cookieStore = await cookies();
+    const token = cookieStore.get(SESSION_COOKIE_NAME)?.value;
+    const user = verifySessionToken(token);
+
     return (
         <div id="app">
             <BackgroundAnimation />
             <Navbar />
-            <LoginPage />
+            <LoginPage initialUser={user} accounts={getDemoAccounts()} />
         </div>
     );
 }

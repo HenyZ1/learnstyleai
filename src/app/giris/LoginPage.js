@@ -1,59 +1,213 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useMemo, useState } from "react";
 import styles from "../components/PageStyles.module.css";
 
-export default function LoginPage() {
+export default function LoginPage({ initialUser, accounts }) {
+    const router = useRouter();
+    const [user, setUser] = useState(initialUser);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
+
+    const welcomeText = useMemo(() => {
+        if (!user) {
+            return "Deniz Hoca ve ogrenciler icin iki demo hesap hazir. Sisteme girip anket, AI yorum ve chat akisini kullanabilirsiniz.";
+        }
+
+        if (user.role === "teacher") {
+            return "Egitmen oturumu aktif. Anket sonuclarini, AI yorumlarini ve platform deneyimini ogretmen bakisiyla test edebilirsiniz.";
+        }
+
+        return "Ogrenci oturumu aktif. Anketi doldurup AI destekli yorumlari ve chat asistanini ogrenci akisi icinde test edebilirsiniz.";
+    }, [user]);
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        setLoading(true);
+        setError("");
+
+        try {
+            const response = await fetch("/api/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                }),
+            });
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || "Giris yapilamadi.");
+            }
+
+            setUser(data.user);
+            setPassword("");
+            router.refresh();
+        } catch (submitError) {
+            setError(
+                submitError instanceof Error && submitError.message
+                    ? submitError.message
+                    : "Giris yapilirken beklenmeyen bir hata olustu."
+            );
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleLogout = async () => {
+        setLoading(true);
+        setError("");
+
+        try {
+            await fetch("/api/auth/logout", {
+                method: "POST",
+            });
+            setUser(null);
+            setEmail("");
+            setPassword("");
+            router.refresh();
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
-        <div className={styles.comingSoonPage}>
-            <div className={`glass-card-large ${styles.comingSoonBox}`}>
-                {/* Animated Icon */}
-                <div className={styles.csIcon}>
-                    <div className={`${styles.csIconRing} ${styles.ring1}`}></div>
-                    <div className={`${styles.csIconRing} ${styles.ring2}`}></div>
-                    <div className={`${styles.csIconRing} ${styles.ring3}`}></div>
-                    <div className={styles.csIconInner}>
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#loginGrad)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                            <defs>
-                                <linearGradient id="loginGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stopColor="#a855f7" />
-                                    <stop offset="50%" stopColor="#6366f1" />
-                                    <stop offset="100%" stopColor="#06b6d4" />
-                                </linearGradient>
-                            </defs>
-                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-                            <polyline points="10 17 15 12 10 7" />
-                            <line x1="15" y1="12" x2="3" y2="12" />
-                        </svg>
+        <div className={styles.loginPage}>
+            <div className={styles.container}>
+                <div className={styles.loginShell}>
+                    <div className={`glass-card-large ${styles.loginHero}`}>
+                        <div className={styles.loginBadge}>
+                            <span className={styles.csTagDot}></span>
+                            Demo Giris Aktif
+                        </div>
+                        <h1 className={styles.loginTitle}>
+                            LearnStyle AI icin
+                            <br />
+                            <span className={styles.csGlow}>hazir iki hesap</span>
+                        </h1>
+                        <p className={styles.loginDesc}>{welcomeText}</p>
+
+                        <div className={styles.accountGrid}>
+                            {accounts.map((account) => (
+                                <div key={account.id} className={`glass-card ${styles.accountCard}`}>
+                                    <div className={styles.accountTop}>
+                                        <div>
+                                            <p className={styles.accountRole}>{account.roleLabel}</p>
+                                            <h3 className={styles.accountName}>{account.name}</h3>
+                                        </div>
+                                        <span className={styles.accountBadge}>{account.role === "teacher" ? "Deneme" : "Paylasimli"}</span>
+                                    </div>
+                                    <p className={styles.accountEmail}>{account.email}</p>
+                                    <p className={styles.accountSummary}>{account.summary}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                </div>
 
-                {/* Tag */}
-                <div className={styles.csTag}>
-                    <span className={styles.csTagDot}></span>
-                    Çok Yakında
-                </div>
+                    <div className={`glass-card-large ${styles.loginPanel}`}>
+                        {!user ? (
+                            <>
+                                <div className={styles.panelHeader}>
+                                    <p className={styles.panelEyebrow}>Giris</p>
+                                    <h2 className={styles.panelTitle}>Hesabiniza giris yapin</h2>
+                                    <p className={styles.panelDesc}>
+                                        Demo hesaplardan biriyle giris yaparak sayfa akisini aktif kullanabilirsiniz.
+                                    </p>
+                                </div>
 
-                {/* Content */}
-                <h1 className={styles.csTitle}>
-                    Giriş Sistemi
-                    <br />
-                    <span className={styles.csGlow}>Yakında Sizlerle!</span>
-                </h1>
-                <p className={styles.csDesc}>
-                    Kişiselleştirilmiş öğrenme deneyiminizi daha da ileriye taşımak için <strong style={{ color: "var(--text-primary)" }}>kullanıcı hesap sistemi</strong> üzerinde çalışıyoruz.
-                    Hesabınızla giriş yaparak ilerlemenizi kaydedin, AI önerilerini kişiselleştirin ve daha fazlasını keşfedin.
-                </p>
+                                <form className={styles.loginForm} onSubmit={handleSubmit}>
+                                    <label className={styles.fieldBlock}>
+                                        <span>E-posta</span>
+                                        <input
+                                            className={styles.input}
+                                            type="email"
+                                            autoComplete="username"
+                                            placeholder="ornek@learnstyle.ai"
+                                            value={email}
+                                            onChange={(event) => setEmail(event.target.value)}
+                                            required
+                                        />
+                                    </label>
 
-                {/* Actions */}
-                <div className={styles.csActions}>
-                    <Link href="/" className={`btn btn-primary btn-glow ${styles.backBtn}`}>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
-                        <span>Ana Sayfaya Dön</span>
-                    </Link>
-                    <Link href="/ozellikler" className={`btn btn-glass ${styles.backBtn}`}>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                        <span>Özellikleri Keşfet</span>
-                    </Link>
+                                    <label className={styles.fieldBlock}>
+                                        <span>Sifre</span>
+                                        <input
+                                            className={styles.input}
+                                            type="password"
+                                            autoComplete="current-password"
+                                            placeholder="Sifrenizi girin"
+                                            value={password}
+                                            onChange={(event) => setPassword(event.target.value)}
+                                            required
+                                        />
+                                    </label>
+
+                                    {error ? <div className={styles.loginError}>{error}</div> : null}
+
+                                    <button type="submit" className={`btn btn-primary btn-glow ${styles.loginSubmit}`} disabled={loading}>
+                                        {loading ? "Giris yapiliyor..." : "Giris Yap"}
+                                    </button>
+                                </form>
+
+                                <div className={styles.loginActions}>
+                                    <Link href="/ogrenme-stilini-bul" className={`btn btn-glass ${styles.backBtn}`}>
+                                        Ankete Git
+                                    </Link>
+                                    <Link href="/" className={`btn btn-glass ${styles.backBtn}`}>
+                                        Ana Sayfa
+                                    </Link>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className={styles.panelHeader}>
+                                    <p className={styles.panelEyebrow}>Oturum Acik</p>
+                                    <h2 className={styles.panelTitle}>{user.name}</h2>
+                                    <p className={styles.panelDesc}>
+                                        {user.roleLabel} hesabi aktif. E-posta: <strong>{user.email}</strong>
+                                    </p>
+                                </div>
+
+                                <div className={styles.sessionCard}>
+                                    <div className={styles.sessionRow}>
+                                        <span>Rol</span>
+                                        <strong>{user.roleLabel}</strong>
+                                    </div>
+                                    <div className={styles.sessionRow}>
+                                        <span>AI Chat</span>
+                                        <strong>Aktif</strong>
+                                    </div>
+                                    <div className={styles.sessionRow}>
+                                        <span>VARK Anketi</span>
+                                        <strong>Aktif</strong>
+                                    </div>
+                                    <div className={styles.sessionRow}>
+                                        <span>ML Analizi</span>
+                                        <strong>Aktif</strong>
+                                    </div>
+                                </div>
+
+                                <div className={styles.quickLinks}>
+                                    <Link href="/ogrenme-stilini-bul" className={`btn btn-primary ${styles.backBtn}`}>
+                                        Ankete Basla
+                                    </Link>
+                                    <Link href="/ozellikler" className={`btn btn-glass ${styles.backBtn}`}>
+                                        Ozellikler
+                                    </Link>
+                                </div>
+
+                                <button type="button" className={`btn btn-glass ${styles.logoutButton}`} onClick={handleLogout} disabled={loading}>
+                                    {loading ? "Cikis yapiliyor..." : "Cikis Yap"}
+                                </button>
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>

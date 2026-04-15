@@ -177,6 +177,200 @@
     text-decoration: none;
 }
 
+.loginPage {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 48px;
+}
+
+.loginShell {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.loginHero,
+.loginPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.loginHero {
+    padding: 44px;
+}
+
+.loginPanel {
+    padding: 36px;
+}
+
+.loginBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    padding: 8px 14px;
+    border-radius: var(--radius-full);
+    background: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    color: var(--accent-cyan);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.loginTitle {
+    font-family: var(--font-primary);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+}
+
+.loginDesc {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.accountGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.accountCard {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 100%;
+}
+
+.accountTop {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.accountRole,
+.panelEyebrow {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.76rem;
+}
+
+.accountName,
+.panelTitle {
+    font-family: var(--font-primary);
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+}
+
+.accountBadge {
+    padding: 6px 10px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    font-size: 0.76rem;
+    white-space: nowrap;
+}
+
+.accountEmail {
+    color: var(--text-primary);
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.accountSummary,
+.panelDesc {
+    color: var(--text-secondary);
+    line-height: 1.75;
+}
+
+.panelHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.fieldBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.input:focus {
+    border-color: rgba(6, 182, 212, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.loginError {
+    padding: 12px 14px;
+    border-radius: var(--radius-lg);
+    background: rgba(249, 115, 22, 0.08);
+    border: 1px solid rgba(249, 115, 22, 0.24);
+    color: #fdba74;
+    font-size: 0.9rem;
+}
+
+.loginSubmit,
+.logoutButton {
+    justify-content: center;
+}
+
+.loginActions,
+.quickLinks {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.sessionCard {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px;
+    border-radius: var(--radius-xl);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+}
+
+.sessionRow {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--text-secondary);
+}
+
+.sessionRow strong {
+    color: var(--text-primary);
+}
+
 /* Feature Detail Cards */
 .detailGrid {
     display: grid;
@@ -329,6 +523,19 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    .loginShell {
+        grid-template-columns: 1fr;
+    }
+
+    .accountGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .loginHero,
+    .loginPanel {
+        padding: 28px 22px;
+    }
+
     .detailGrid {
         grid-template-columns: 1fr;
     }
