@@ -6,8 +6,8 @@ const SESSION_MAX_AGE = 60 * 60 * 24 * 7;
 const DEMO_ACCOUNTS = [
   {
     id: "teacher-deniz",
-    name: "Deniz Hoca",
-    email: process.env.DEMO_TEACHER_EMAIL || "deniz.hoca@learnstyle.ai",
+    name: "Egitmen Hesabi",
+    email: process.env.DEMO_TEACHER_EMAIL || "egitmen@learnstyle.ai",
     password: process.env.DEMO_TEACHER_PASSWORD || "DenizHoca2026!",
     role: "teacher",
     roleLabel: "Egitmen",

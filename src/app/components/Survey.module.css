@@ -269,11 +269,6 @@
     border-color: rgba(168, 85, 247, 0.45);
 }
 
-.liveSummary {
-    color: var(--text-secondary);
-    line-height: 1.7;
-}
-
 .scoreList {
     display: flex;
     flex-direction: column;

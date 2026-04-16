@@ -197,6 +197,10 @@
     transition-delay: 0.25s;
 }
 
+.mobileLink:nth-child(5) {
+    transition-delay: 0.3s;
+}
+
 .mobileLink:hover {
     color: var(--text-primary);
     background: var(--glass-bg);

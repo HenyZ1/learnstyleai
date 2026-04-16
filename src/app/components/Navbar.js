@@ -54,6 +54,7 @@ export default function Navbar() {
         { href: "/ozellikler", label: "Özellikler" },
         { href: "/ogrenme-stilini-bul", label: "Öğrenme Stilini Bul" },
         { href: "/hakkinda", label: "Hakkında" },
+        { href: "/profil", label: "Profil" },
     ];
     const loginLabel = sessionUser ? sessionUser.name : "Giris Yap";
 

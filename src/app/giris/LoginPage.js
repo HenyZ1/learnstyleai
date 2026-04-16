@@ -15,7 +15,7 @@ export default function LoginPage({ initialUser, initialDashboardProfile, accoun
 
     const welcomeText = useMemo(() => {
         if (!user) {
-            return "Deniz Hoca ve ogrenciler icin iki demo hesap hazir. Sisteme girip anket, AI yorum ve chat akisini kullanabilirsiniz.";
+            return "Egitmen ve ogrenci icin iki demo hesap hazir. Sisteme girip anket, AI yorum ve chat akisini kullanabilirsiniz.";
         }
 
         if (user.role === "teacher") {

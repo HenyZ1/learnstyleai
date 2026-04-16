@@ -485,6 +485,31 @@
     background: var(--gradient-primary);
 }
 
+.profileGrid {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.25fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.profileHeroCard,
+.profileDetailCard {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.profileHeroCard {
+    position: sticky;
+    top: 96px;
+}
+
+.profileResultStack {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
 /* Feature Detail Cards */
 .detailGrid {
     display: grid;
@@ -637,6 +662,14 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    .profileGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .profileHeroCard {
+        position: static;
+    }
+
     .loginShell {
         grid-template-columns: 1fr;
     }

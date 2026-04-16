@@ -305,32 +305,6 @@ export default function Survey() {
               </div>
 
               <div className={`glass-card ${styles.sideCard}`}>
-                <p className={styles.sideLabel}>Canlı Profil Özeti</p>
-                <p className={styles.liveSummary}>{blendSummary}</p>
-                <div className={styles.scoreList}>
-                  {rankedStyles.map((style) => (
-                    <div key={style.key} className={styles.scoreRow}>
-                      <div className={styles.scoreHeader}>
-                        <span>
-                          {style.icon} {style.label}
-                        </span>
-                        <strong>{style.score}</strong>
-                      </div>
-                      <div className={styles.scoreTrack}>
-                        <div
-                          className={styles.scoreFill}
-                          style={{
-                            width: `${style.percentage}%`,
-                            background: style.color,
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className={`glass-card ${styles.sideCard}`}>
                 <p className={styles.sideLabel}>Nasıl Çalışır?</p>
                 <ul className={styles.infoList}>
                   <li>Önce 20 soruluk anket VARK dağılımınızı hesaplar.</li>
