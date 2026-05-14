@@ -25,6 +25,32 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## Supabase Persistence
+
+The project stores survey dashboard results in a single `survey_profiles` table.
+If a remote Postgres connection string is available, the app will prefer that over local SQLite fallback.
+
+Add your Supabase Postgres connection string to `.env.local`:
+
+```bash
+DATABASE_URL=postgres://user:password@host:5432/database
+```
+
+Provision or update the schema explicitly with:
+
+```bash
+npm run db:init
+```
+
+The remote table keeps both queryable columns and the full JSON payload:
+
+- `user_id`, `user_name`, `user_role`
+- `dominant_style_*`, `secondary_style_*`
+- `blend_summary`, `analysis_text`, `analysis_preview`, `analysis_source`
+- `ml_predicted_style_label`, `ml_confidence_percent`, `ml_ambiguity_level`, `ml_valid_accuracy`
+- `completed_at`, `created_at`, `updated_at`
+- `profile_json`
+
 ## AI Survey Analysis
 
 The 20-question survey sends answers to `src/app/api/survey-analysis/route.js`.

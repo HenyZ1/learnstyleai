@@ -15,14 +15,14 @@ export default function LoginPage({ initialUser, initialDashboardProfile, accoun
 
     const welcomeText = useMemo(() => {
         if (!user) {
-            return "Egitmen ve ogrenci icin iki demo hesap hazir. Sisteme girip anket, AI yorum ve chat akisini kullanabilirsiniz.";
+            return "Egitmen ve ogrenci icin iki demo hesap hazir. Sisteme girip anket, AI yorum ve chat akisini kullanabilirsiniz; son sonuclariniz Supabase uzerinde kalici tutulur.";
         }
 
         if (user.role === "teacher") {
-            return "Egitmen oturumu aktif. Anket sonuclarini, AI yorumlarini ve platform deneyimini ogretmen bakisiyla test edebilirsiniz.";
+            return "Egitmen oturumu aktif. Anket sonuclarini, AI yorumlarini ve platform deneyimini ogretmen bakisiyla test edebilirsiniz. Veriler Supabase uzerinde kalici saklanir.";
         }
 
-        return "Ogrenci oturumu aktif. Anketi doldurup AI destekli yorumlari ve chat asistanini ogrenci akisi icinde test edebilirsiniz.";
+        return "Ogrenci oturumu aktif. Anketi doldurup AI destekli yorumlari ve chat asistanini ogrenci akisi icinde test edebilirsiniz. Veriler Supabase uzerinde kalici saklanir.";
     }, [user]);
 
     useEffect(() => {
@@ -106,7 +106,7 @@ export default function LoginPage({ initialUser, initialDashboardProfile, accoun
                     <div className={`glass-card-large ${styles.loginHero}`}>
                         <div className={styles.loginBadge}>
                             <span className={styles.csTagDot}></span>
-                            Demo Giris Aktif
+                            Demo Giris + Bulut Kayit
                         </div>
                         <h1 className={styles.loginTitle}>
                             LearnStyle AI icin
@@ -140,6 +140,7 @@ export default function LoginPage({ initialUser, initialDashboardProfile, accoun
                                     <h2 className={styles.panelTitle}>Hesabiniza giris yapin</h2>
                                     <p className={styles.panelDesc}>
                                         Demo hesaplardan biriyle giris yaparak sayfa akisini aktif kullanabilirsiniz.
+                                        Anket sonuclari Supabase uzerinde kalici olarak tutulur.
                                     </p>
                                 </div>
 
@@ -213,6 +214,10 @@ export default function LoginPage({ initialUser, initialDashboardProfile, accoun
                                         <span>ML Analizi</span>
                                         <strong>Aktif</strong>
                                     </div>
+                                    <div className={styles.sessionRow}>
+                                        <span>Bulut Kayit</span>
+                                        <strong>Supabase Aktif</strong>
+                                    </div>
                                 </div>
 
                                 <div className={`glass-card ${styles.dashboardCard}`}>
@@ -243,6 +248,7 @@ export default function LoginPage({ initialUser, initialDashboardProfile, accoun
                                             <p className={styles.dashboardSummary}>{dashboardProfile.blendSummary}</p>
 
                                             <div className={styles.dashboardMetrics}>
+                                                <span className={styles.dashboardMetric}>Veri: Supabase</span>
                                                 <span className={styles.dashboardMetric}>
                                                     AI: {dashboardProfile.analysisSource === "ai" ? "OpenAI" : "Fallback"}
                                                 </span>

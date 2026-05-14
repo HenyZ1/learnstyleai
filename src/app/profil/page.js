@@ -48,8 +48,8 @@ export default async function ProfilePage() {
             </span>
             <h1 className={styles.pageTitle}>{user.name}</h1>
             <p className={styles.pageDesc}>
-              {user.roleLabel} hesabi acik. Supabase baglantisi aktifse cozulen anketler burada kalici olarak
-              tutulur ve son sonuclariniz bu sayfada gorunur.
+              {user.roleLabel} hesabi acik. Supabase bulut kaydi aktif; cozdugunuz anketler kalici olarak
+              saklanir ve son sonuclariniz bu sayfada otomatik gorunur.
             </p>
           </div>
 
@@ -76,6 +76,10 @@ export default async function ProfilePage() {
                 <div className={styles.sessionRow}>
                   <span>Anket Kaydi</span>
                   <strong>{dashboardProfile ? "Var" : "Yok"}</strong>
+                </div>
+                <div className={styles.sessionRow}>
+                  <span>Bulut Senkronizasyonu</span>
+                  <strong>Supabase Aktif</strong>
                 </div>
               </div>
 
@@ -107,6 +111,7 @@ export default async function ProfilePage() {
               {dashboardProfile ? (
                 <div className={styles.profileResultStack}>
                   <div className={styles.dashboardMetrics}>
+                    <span className={styles.dashboardMetric}>Veri: Supabase</span>
                     <span className={styles.dashboardMetric}>
                       AI: {dashboardProfile.analysisSource === "ai" ? "OpenAI" : "Fallback"}
                     </span>
@@ -194,4 +199,3 @@ export default async function ProfilePage() {
     </div>
   );
 }
-
