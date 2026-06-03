@@ -2,6 +2,22 @@
 import { useEffect, useRef } from "react";
 import styles from "./Hero.module.css";
 
+function animateCount(el, start, end, duration) {
+    const range = end - start;
+    const startTime = performance.now();
+
+    function update(time) {
+        const elapsed = time - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(start + range * eased);
+        el.textContent = current;
+        if (progress < 1) requestAnimationFrame(update);
+    }
+
+    requestAnimationFrame(update);
+}
+
 export default function Hero() {
     const statsRef = useRef(null);
     const animatedRef = useRef(false);
@@ -21,20 +37,6 @@ export default function Hero() {
         if (statsRef.current) observer.observe(statsRef.current);
         return () => observer.disconnect();
     }, []);
-
-    function animateCount(el, start, end, duration) {
-        const range = end - start;
-        const startTime = performance.now();
-        function update(time) {
-            const elapsed = time - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const current = Math.round(start + range * eased);
-            el.textContent = current;
-            if (progress < 1) requestAnimationFrame(update);
-        }
-        requestAnimationFrame(update);
-    }
 
     const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 

@@ -1,4 +1,17 @@
 import "./globals.css";
+import { Inter, Outfit } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
+
+const outfit = Outfit({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-outfit",
+  weight: ["300", "400", "500", "600", "700", "800"],
+});
 
 export const metadata = {
   title: "LearnStyle AI - Kişiselleştirilmiş Öğrenme",
@@ -9,15 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="tr">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>{children}</body>
+      <body className={`${inter.variable} ${outfit.variable}`}>{children}</body>
     </html>
   );
 }

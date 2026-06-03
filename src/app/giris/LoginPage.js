@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import styles from "../components/PageStyles.module.css";
 
 export default function LoginPage({ initialUser, initialDashboardProfile, accounts }) {
     const router = useRouter();
     const [user, setUser] = useState(initialUser);
-    const [dashboardProfile, setDashboardProfile] = useState(initialDashboardProfile);
+    const [dashboardProfile, setDashboardProfile] = useState(initialDashboardProfile || null);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
@@ -24,14 +24,6 @@ export default function LoginPage({ initialUser, initialDashboardProfile, accoun
 
         return "Ogrenci oturumu aktif. Anketi doldurup AI destekli yorumlari ve chat asistanini ogrenci akisi icinde test edebilirsiniz.";
     }, [user]);
-
-    useEffect(() => {
-        setUser(initialUser);
-    }, [initialUser]);
-
-    useEffect(() => {
-        setDashboardProfile(initialDashboardProfile || null);
-    }, [initialDashboardProfile]);
 
     const formattedCompletedAt = useMemo(() => {
         if (!dashboardProfile?.completedAt) {

@@ -15,12 +15,18 @@ export default async function Page() {
     const token = cookieStore.get(SESSION_COOKIE_NAME)?.value;
     const user = verifySessionToken(token);
     const initialDashboardProfile = user ? await getSurveyProfileByUserId(user.id) : null;
+    const loginPageKey = `${user?.id || "guest"}-${initialDashboardProfile?.completedAt || "no-profile"}`;
 
     return (
         <div id="app">
             <BackgroundAnimation />
             <Navbar />
-            <LoginPage initialUser={user} initialDashboardProfile={initialDashboardProfile} accounts={getDemoAccounts()} />
+            <LoginPage
+                key={loginPageKey}
+                initialUser={user}
+                initialDashboardProfile={initialDashboardProfile}
+                accounts={getDemoAccounts()}
+            />
         </div>
     );
 }
