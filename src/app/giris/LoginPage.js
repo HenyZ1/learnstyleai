@@ -11,7 +11,9 @@ export default function LoginPage({ initialUser, initialDashboardProfile, accoun
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
+    const [demoLoadingId, setDemoLoadingId] = useState("");
     const [error, setError] = useState("");
+    const busy = loading || Boolean(demoLoadingId);
 
     const welcomeText = useMemo(() => {
         if (!user) {
@@ -73,6 +75,44 @@ export default function LoginPage({ initialUser, initialDashboardProfile, accoun
         }
     };
 
+    const handleDemoLogin = async (accountId) => {
+        if (busy) {
+            return;
+        }
+
+        setDemoLoadingId(accountId);
+        setError("");
+
+        try {
+            const response = await fetch("/api/auth/demo", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ accountId }),
+            });
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || "Demo hesaba giris yapilamadi.");
+            }
+
+            setUser(data.user);
+            setDashboardProfile(null);
+            setEmail("");
+            setPassword("");
+            router.refresh();
+        } catch (demoError) {
+            setError(
+                demoError instanceof Error && demoError.message
+                    ? demoError.message
+                    : "Demo girisi sirasinda beklenmeyen bir hata olustu."
+            );
+        } finally {
+            setDemoLoadingId("");
+        }
+    };
+
     const handleLogout = async () => {
         setLoading(true);
         setError("");
@@ -119,6 +159,14 @@ export default function LoginPage({ initialUser, initialDashboardProfile, accoun
                                     </div>
                                     <p className={styles.accountEmail}>{account.email}</p>
                                     <p className={styles.accountSummary}>{account.summary}</p>
+                                    <button
+                                        type="button"
+                                        className={`btn btn-glass ${styles.accountLoginButton}`}
+                                        onClick={() => handleDemoLogin(account.id)}
+                                        disabled={busy}
+                                    >
+                                        {demoLoadingId === account.id ? "Giris yapiliyor..." : "Bu hesapla giris yap"}
+                                    </button>
                                 </div>
                             ))}
                         </div>
@@ -164,7 +212,7 @@ export default function LoginPage({ initialUser, initialDashboardProfile, accoun
 
                                     {error ? <div className={styles.loginError}>{error}</div> : null}
 
-                                    <button type="submit" className={`btn btn-primary btn-glow ${styles.loginSubmit}`} disabled={loading}>
+                                    <button type="submit" className={`btn btn-primary btn-glow ${styles.loginSubmit}`} disabled={busy}>
                                         {loading ? "Giris yapiliyor..." : "Giris Yap"}
                                     </button>
                                 </form>
@@ -305,7 +353,7 @@ export default function LoginPage({ initialUser, initialDashboardProfile, accoun
                                     </Link>
                                 </div>
 
-                                <button type="button" className={`btn btn-glass ${styles.logoutButton}`} onClick={handleLogout} disabled={loading}>
+                                <button type="button" className={`btn btn-glass ${styles.logoutButton}`} onClick={handleLogout} disabled={busy}>
                                     {loading ? "Cikis yapiliyor..." : "Cikis Yap"}
                                 </button>
                             </>

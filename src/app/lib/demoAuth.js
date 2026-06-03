@@ -66,6 +66,12 @@ export function sanitizeAccount(account) {
   };
 }
 
+export function findAccountById(accountId) {
+  const account = DEMO_ACCOUNTS.find((entry) => entry.id === accountId);
+
+  return account ? sanitizeAccount(account) : null;
+}
+
 export function findAccountByCredentials(email, password) {
   const normalizedEmail = String(email || "").trim().toLowerCase();
   const normalizedPassword = String(password || "");

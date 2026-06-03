@@ -33,8 +33,8 @@ export default function Footer() {
                     <div className={styles.footerGroup}>
                         <h4>İletişim</h4>
                         <a href="mailto:info@learnstyleai.com">info@learnstyleai.com</a>
-                        <a href="#" target="_blank" rel="noopener noreferrer">Twitter</a>
-                        <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <Link href="/giris">Demo hesaplar</Link>
+                        <Link href="/profil">Profil paneli</Link>
                     </div>
                 </div>
                 <div className={styles.footerBottom}>
