@@ -9,7 +9,7 @@
 }
 
 .navbar.scrolled {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(61, 76, 94, 0.1);
 }
 
 .navContainer {
@@ -44,7 +44,7 @@
     font-family: var(--font-primary);
     font-size: 1.35rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
 }
 
 .logoAi {

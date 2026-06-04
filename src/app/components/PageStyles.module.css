@@ -22,7 +22,7 @@
     font-family: var(--font-primary);
     font-size: clamp(2.2rem, 5vw, 3.2rem);
     font-weight: 800;
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
     margin-top: 16px;
     margin-bottom: 20px;
 }
@@ -69,19 +69,19 @@
 }
 
 .ring1 {
-    border-color: rgba(168, 85, 247, 0.2);
+    border-color: rgba(117, 105, 143, 0.2);
     animation-delay: 0s;
 }
 
 .ring2 {
     inset: -12px;
-    border-color: rgba(99, 102, 241, 0.15);
+    border-color: rgba(101, 120, 149, 0.15);
     animation-delay: 0.5s;
 }
 
 .ring3 {
     inset: -24px;
-    border-color: rgba(6, 182, 212, 0.1);
+    border-color: rgba(93, 143, 139, 0.1);
     animation-delay: 1s;
 }
 
@@ -111,8 +111,8 @@
     gap: 8px;
     padding: 6px 16px;
     border-radius: 9999px;
-    background: rgba(168, 85, 247, 0.08);
-    border: 1px solid rgba(168, 85, 247, 0.2);
+    background: rgba(117, 105, 143, 0.08);
+    border: 1px solid rgba(117, 105, 143, 0.2);
     font-size: 0.82rem;
     font-weight: 600;
     color: var(--accent-purple);
@@ -149,7 +149,7 @@
     font-weight: 800;
     line-height: 1.3;
     margin-bottom: 20px;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
 }
 
 .csGlow {
@@ -214,8 +214,8 @@
     width: fit-content;
     padding: 8px 14px;
     border-radius: var(--radius-full);
-    background: rgba(6, 182, 212, 0.1);
-    border: 1px solid rgba(6, 182, 212, 0.2);
+    background: rgba(93, 143, 139, 0.1);
+    border: 1px solid rgba(93, 143, 139, 0.2);
     color: var(--accent-cyan);
     font-size: 0.82rem;
     font-weight: 700;
@@ -227,7 +227,7 @@
     font-family: var(--font-primary);
     font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.15;
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
 }
 
 .loginDesc {
@@ -268,13 +268,13 @@
 .panelTitle {
     font-family: var(--font-primary);
     font-size: 1.35rem;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
 }
 
 .accountBadge {
     padding: 6px 10px;
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(76, 91, 108, 0.065);
     border: 1px solid var(--glass-border);
     color: var(--text-secondary);
     font-size: 0.76rem;
@@ -324,7 +324,7 @@
     width: 100%;
     padding: 14px 16px;
     border-radius: var(--radius-lg);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(76, 91, 108, 0.055);
     border: 1px solid var(--glass-border);
     color: var(--text-primary);
     outline: none;
@@ -332,16 +332,16 @@
 }
 
 .input:focus {
-    border-color: rgba(6, 182, 212, 0.35);
-    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(93, 143, 139, 0.35);
+    background: rgba(76, 91, 108, 0.085);
 }
 
 .loginError {
     padding: 12px 14px;
     border-radius: var(--radius-lg);
-    background: rgba(249, 115, 22, 0.08);
-    border: 1px solid rgba(249, 115, 22, 0.24);
-    color: #fdba74;
+    background: rgba(180, 125, 84, 0.08);
+    border: 1px solid rgba(180, 125, 84, 0.24);
+    color: #9c654b;
     font-size: 0.9rem;
 }
 
@@ -363,7 +363,7 @@
     gap: 12px;
     padding: 18px;
     border-radius: var(--radius-xl);
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(76, 91, 108, 0.045);
     border: 1px solid var(--glass-border);
 }
 
@@ -394,7 +394,7 @@
 .dashboardTitle {
     font-family: var(--font-primary);
     font-size: 1.2rem;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
 }
 
 .dashboardBadge,
@@ -423,7 +423,7 @@
 }
 
 .dashboardMetric {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(76, 91, 108, 0.065);
     border: 1px solid var(--glass-border);
     color: var(--text-secondary);
 }
@@ -456,7 +456,7 @@
     width: 100%;
     height: 10px;
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(76, 91, 108, 0.065);
     overflow: hidden;
 }
 
@@ -571,7 +571,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-top: 1px solid rgba(76, 91, 108, 0.045);
 }
 
 .checkIcon {

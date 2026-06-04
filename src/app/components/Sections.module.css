@@ -20,7 +20,7 @@
     font-family: var(--font-primary);
     font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 800;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     margin-top: 16px;
     margin-bottom: 16px;
 }
@@ -61,38 +61,38 @@
 }
 
 .purple {
-    background: rgba(168, 85, 247, 0.1);
-    border: 1px solid rgba(168, 85, 247, 0.2);
+    background: rgba(117, 105, 143, 0.1);
+    border: 1px solid rgba(117, 105, 143, 0.2);
 }
 
 .violet {
-    background: rgba(139, 92, 246, 0.1);
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    background: rgba(136, 123, 159, 0.1);
+    border: 1px solid rgba(136, 123, 159, 0.2);
 }
 
 .cyan {
-    background: rgba(6, 182, 212, 0.1);
-    border: 1px solid rgba(6, 182, 212, 0.2);
+    background: rgba(93, 143, 139, 0.1);
+    border: 1px solid rgba(93, 143, 139, 0.2);
 }
 
 .pink {
-    background: rgba(236, 72, 153, 0.1);
-    border: 1px solid rgba(236, 72, 153, 0.2);
+    background: rgba(166, 111, 128, 0.1);
+    border: 1px solid rgba(166, 111, 128, 0.2);
 }
 
 .orange {
-    background: rgba(249, 115, 22, 0.1);
-    border: 1px solid rgba(249, 115, 22, 0.2);
+    background: rgba(180, 125, 84, 0.1);
+    border: 1px solid rgba(180, 125, 84, 0.2);
 }
 
 .green {
-    background: rgba(34, 197, 94, 0.1);
-    border: 1px solid rgba(34, 197, 94, 0.2);
+    background: rgba(95, 141, 107, 0.1);
+    border: 1px solid rgba(95, 141, 107, 0.2);
 }
 
 .indigo {
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    background: rgba(101, 120, 149, 0.1);
+    border: 1px solid rgba(101, 120, 149, 0.2);
 }
 
 .featureTitle {
@@ -159,7 +159,7 @@
     font-size: 0.85rem;
     color: var(--text-muted);
     padding: 6px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(76, 91, 108, 0.055);
     display: flex;
     align-items: center;
     gap: 8px;
